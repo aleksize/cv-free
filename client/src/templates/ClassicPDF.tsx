@@ -49,14 +49,16 @@ export default function ClassicPDF({ data }: TemplateProps) {
       color: '#0f172a',
       textTransform: 'uppercase',
       letterSpacing: 1,
+      lineHeight: 1.1,
     },
     jobTitle: {
       fontSize: 12,
       fontWeight: 'semibold',
       color: accent,
-      marginTop: 2,
+      marginTop: 4,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
+      lineHeight: 1.2,
     },
     contactInfo: {
       flexDirection: 'row',

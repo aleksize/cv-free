@@ -47,12 +47,14 @@ export default function TechnicalPDF({ data }: TemplateProps) {
       fontSize: 18,
       fontWeight: 'bold',
       color: '#111827',
+      lineHeight: 1.1,
     },
     jobTitle: {
       fontSize: 10,
       fontWeight: 'semibold',
       color: accent,
-      marginTop: 1,
+      marginTop: 4,
+      lineHeight: 1.2,
     },
     contactCol: {
       alignItems: 'flex-end',

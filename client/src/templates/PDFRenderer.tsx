@@ -10,6 +10,10 @@ Font.register({
   family: 'Roboto',
   fonts: [
     { src: '/fonts/Roboto-Regular.ttf', fontWeight: 'normal' },
+    { src: '/fonts/Roboto-Regular.ttf', fontWeight: 400 },
+    { src: '/fonts/Roboto-Regular.ttf', fontWeight: 500 },
+    { src: '/fonts/Roboto-Bold.ttf', fontWeight: 600 },
+    { src: '/fonts/Roboto-Bold.ttf', fontWeight: 700 },
     { src: '/fonts/Roboto-Bold.ttf', fontWeight: 'bold' }
   ]
 });
@@ -18,6 +22,10 @@ Font.register({
   family: 'Inter',
   fonts: [
     { src: '/fonts/Inter-Regular.ttf', fontWeight: 'normal' },
+    { src: '/fonts/Inter-Regular.ttf', fontWeight: 400 },
+    { src: '/fonts/Inter-Regular.ttf', fontWeight: 500 },
+    { src: '/fonts/Inter-Bold.ttf', fontWeight: 600 },
+    { src: '/fonts/Inter-Bold.ttf', fontWeight: 700 },
     { src: '/fonts/Inter-Bold.ttf', fontWeight: 'bold' }
   ]
 });
@@ -26,6 +34,10 @@ Font.register({
   family: 'Montserrat',
   fonts: [
     { src: '/fonts/Montserrat-Regular.ttf', fontWeight: 'normal' },
+    { src: '/fonts/Montserrat-Regular.ttf', fontWeight: 400 },
+    { src: '/fonts/Montserrat-Regular.ttf', fontWeight: 500 },
+    { src: '/fonts/Montserrat-Bold.ttf', fontWeight: 600 },
+    { src: '/fonts/Montserrat-Bold.ttf', fontWeight: 700 },
     { src: '/fonts/Montserrat-Bold.ttf', fontWeight: 'bold' }
   ]
 });

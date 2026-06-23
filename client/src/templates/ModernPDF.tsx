@@ -48,12 +48,14 @@ export default function ModernPDF({ data }: TemplateProps) {
       fontWeight: 'bold',
       color: '#0f172a',
       letterSpacing: -0.5,
+      lineHeight: 1.1,
     },
     jobTitle: {
       fontSize: 12,
       fontWeight: 'semibold',
       color: accent,
-      marginTop: 2,
+      marginTop: 4,
+      lineHeight: 1.2,
     },
     body: {
       flexDirection: 'row',

@@ -41,6 +41,7 @@ export default function MinimalPDF({ data }: TemplateProps) {
       fontWeight: 'bold',
       color: '#09090b',
       letterSpacing: -0.5,
+      lineHeight: 1.1,
     },
     jobTitle: {
       fontSize: 10,
@@ -48,7 +49,8 @@ export default function MinimalPDF({ data }: TemplateProps) {
       color: '#71717a',
       textTransform: 'uppercase',
       letterSpacing: 0.5,
-      marginTop: 2,
+      marginTop: 4,
+      lineHeight: 1.2,
     },
     contactInfo: {
       flexDirection: 'row',
