@@ -47,7 +47,7 @@ interface CvState {
   loadDemoData: () => void;
 }
 
-const demoData: CvData = {
+export const demoData: CvData = {
   personal: {
     fullName: 'Jan Kowalski',
     jobTitle: 'Senior React Developer',

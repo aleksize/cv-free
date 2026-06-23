@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useCvStore } from '../stores/cvStore';
+import { useCvStore, demoData } from '../stores/cvStore';
 import { HTMLPreview } from '../templates/HTMLPreviews';
 
 
@@ -20,7 +20,7 @@ const accentColors = [
 
 export default function Landing() {
   const navigate = useNavigate();
-  const { data, setTemplate, setColorPreset } = useCvStore();
+  const { setTemplate, setColorPreset } = useCvStore();
   
   // States for interactive hero mockup
   const [selectedTemplate, setSelectedTemplate] = useState('modern');
@@ -317,7 +317,7 @@ export default function Landing() {
                         top: '8px',
                       }}
                     >
-                      <HTMLPreview data={{ ...data, template: t.id }} />
+                      <HTMLPreview data={{ ...demoData, template: t.id }} />
                     </div>
                   </div>
                   <div>
