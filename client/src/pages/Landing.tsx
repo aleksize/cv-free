@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCvStore } from '../stores/cvStore';
+import { HTMLPreview } from '../templates/HTMLPreviews';
+
 
 const templates = [
   { id: 'modern', name: 'Nowoczesny', desc: 'Przejrzysty i zbalansowany układ dwukolumnowy. Świetny dla marketingu, sprzedaży i pracy biurowej.', bgGradient: 'from-sky-400 to-blue-500' },
@@ -18,7 +20,7 @@ const accentColors = [
 
 export default function Landing() {
   const navigate = useNavigate();
-  const { setTemplate, setColorPreset } = useCvStore();
+  const { data, setTemplate, setColorPreset } = useCvStore();
   
   // States for interactive hero mockup
   const [selectedTemplate, setSelectedTemplate] = useState('modern');
@@ -303,8 +305,20 @@ export default function Landing() {
             {templates.map((t) => (
               <div key={t.id} className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col justify-between shadow-xs hover:shadow-md transition">
                 <div className="space-y-3">
-                  <div className={`h-24 rounded-xl bg-gradient-to-br ${t.bgGradient} flex items-center justify-center text-white shadow-inner`}>
-                    <span className="material-symbols-outlined text-4xl opacity-90">article</span>
+                  {/* Live scaled-down template preview as a card thumbnail */}
+                  <div className="h-44 overflow-hidden rounded-xl border border-slate-200 bg-white relative shadow-inner select-none pointer-events-none mb-1 flex justify-center">
+                    <div
+                      style={{
+                        width: '794px',
+                        height: '1123px',
+                        transform: 'scale(0.24)', // Scale down to fit the card width/height nicely
+                        transformOrigin: 'top center',
+                        position: 'absolute',
+                        top: '8px',
+                      }}
+                    >
+                      <HTMLPreview data={{ ...data, template: t.id }} />
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-slate-800">{t.name}</h3>
