@@ -150,7 +150,7 @@ const initialData: CvData = {
 export const useCvStore = create<CvState>()(
   persist(
     (set) => ({
-      data: demoData, // Set demo data as default so user is not greeted with an empty page
+      data: initialData, // Start with empty fields (with placeholders) by default
       setPersonal: (patch) =>
         set((state) => ({
           data: {

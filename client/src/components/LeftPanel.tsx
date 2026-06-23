@@ -115,7 +115,16 @@ export default function LeftPanel() {
                   )}
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Zdjęcie profilowe</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center">
+                    Zdjęcie profilowe
+                    <span className="group relative inline-block ml-1">
+                      <span className="material-symbols-outlined text-[13px] text-slate-400 hover:text-sky-500 cursor-pointer transition select-none align-middle leading-none">help</span>
+                      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 rounded-lg bg-slate-800 p-2 text-[10px] font-medium text-white shadow-md leading-normal normal-case tracking-normal z-50 text-center">
+                        Dodaj profesjonalne zdjęcie biznesowe z jasnym, jednolitym tłem. Zalecany format 1:1.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></span>
+                      </span>
+                    </span>
+                  </span>
                   <div className="flex items-center gap-2">
                     <label className="cursor-pointer rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-600 px-3 py-1.5 text-xs font-semibold transition border border-sky-100">
                       Dodaj zdjęcie
@@ -146,7 +155,16 @@ export default function LeftPanel() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Stanowisko</label>
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center">
+                    Stanowisko
+                    <span className="group relative inline-block ml-1">
+                      <span className="material-symbols-outlined text-[13px] text-slate-400 hover:text-sky-500 cursor-pointer transition select-none align-middle leading-none">help</span>
+                      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 rounded-lg bg-slate-800 p-2 text-[10px] font-medium text-white shadow-md leading-normal normal-case tracking-normal z-50 text-center">
+                        Wpisz stanowisko, na które aplikujesz (np. "React Developer"). Powinno odpowiadać tytułowi w ogłoszeniu.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></span>
+                      </span>
+                    </span>
+                  </label>
                   <input
                     type="text"
                     className="h-10 rounded-lg border border-slate-200 px-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition"
@@ -210,7 +228,16 @@ export default function LeftPanel() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Podsumowanie zawodowe</label>
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center">
+                    Podsumowanie zawodowe
+                    <span className="group relative inline-block ml-1">
+                      <span className="material-symbols-outlined text-[13px] text-slate-400 hover:text-sky-500 cursor-pointer transition select-none align-middle leading-none">help</span>
+                      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 rounded-lg bg-slate-800 p-2 text-[10px] font-medium text-white shadow-md leading-normal normal-case tracking-normal z-50 text-center">
+                        Krótki opis (3-4 zdania) podsumowujący Twoje doświadczenie, największe osiągnięcia i to, co wnosisz do firmy.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></span>
+                      </span>
+                    </span>
+                  </label>
                   <textarea
                     className="rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition resize-y"
                     rows={4}
@@ -309,7 +336,16 @@ export default function LeftPanel() {
                       </div>
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="text-[9px] font-bold uppercase tracking-wider text-slate-500">Opis obowiązków i sukcesów</label>
+                      <label className="text-[9px] font-bold uppercase tracking-wider text-slate-500 flex items-center">
+                        Opis obowiązków i sukcesów
+                        <span className="group relative inline-block ml-1">
+                          <span className="material-symbols-outlined text-[12px] text-slate-400 hover:text-sky-500 cursor-pointer transition select-none align-middle leading-none">help</span>
+                          <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 rounded-lg bg-slate-800 p-2 text-[10px] font-medium text-white shadow-md leading-normal normal-case tracking-normal z-50 text-center">
+                            Wymień najważniejsze zadania i sukcesy. Używaj wypunktowań (•) i zaczynaj zdania od czasowników (np. "Zoptymalizowałem...", "Kierowałem...").
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></span>
+                          </span>
+                        </span>
+                      </label>
                       <textarea
                         className="rounded-lg border border-slate-200 px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition resize-y"
                         rows={3}
@@ -731,7 +767,16 @@ export default function LeftPanel() {
 
               {data.showRodo && (
                 <div className="flex flex-col gap-1">
-                  <label className="text-[9px] font-bold uppercase tracking-wider text-slate-500">Treść klauzuli</label>
+                  <label className="text-[9px] font-bold uppercase tracking-wider text-slate-500 flex items-center">
+                    Treść klauzuli
+                    <span className="group relative inline-block ml-1">
+                      <span className="material-symbols-outlined text-[12px] text-slate-400 hover:text-sky-500 cursor-pointer transition select-none align-middle leading-none">help</span>
+                      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 rounded-lg bg-slate-800 p-2 text-[10px] font-medium text-white shadow-md leading-normal normal-case tracking-normal z-50 text-center">
+                        Standardowa zgoda na przetwarzanie danych osobowych (RODO). Rekrutujący na polskim rynku wymagają jej do podjęcia kontaktu.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></span>
+                      </span>
+                    </span>
+                  </label>
                   <textarea
                     className="rounded-lg border border-slate-200 px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition resize-y font-normal"
                     rows={6}
