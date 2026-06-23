@@ -134,6 +134,28 @@ export default function ClassicPDF({ data }: TemplateProps) {
     gridCol: {
       flex: 1,
     },
+    rodoContainer: {
+      marginTop: 'auto',
+      paddingTop: 6,
+      borderTopWidth: 0.5,
+      borderTopColor: '#cbd5e1',
+    },
+    rodoText: {
+      fontSize: 6.5,
+      color: '#64748b',
+      textAlign: 'justify',
+      lineHeight: 1.25,
+    },
+    watermark: {
+      position: 'absolute',
+      bottom: 12,
+      left: 0,
+      right: 0,
+      textAlign: 'center',
+      fontSize: 7.5,
+      color: '#94a3b8',
+      fontFamily: font,
+    },
   });
 
   return (
@@ -262,6 +284,18 @@ export default function ClassicPDF({ data }: TemplateProps) {
           </View>
         )}
       </View>
+
+      {data.showRodo && data.rodoClause && (
+        <View style={styles.rodoContainer}>
+          <Text style={styles.rodoText}>{data.rodoClause}</Text>
+        </View>
+      )}
+
+      {data.showWatermark && (
+        <Text style={styles.watermark} fixed>
+          Wygenerowano przez www.cv-free.pl
+        </Text>
+      )}
     </Page>
   );
 }

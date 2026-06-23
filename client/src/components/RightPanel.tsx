@@ -31,7 +31,7 @@ interface RightPanelProps {
 }
 
 export default function RightPanel({ onDownloadStart, onDownloadEnd }: RightPanelProps) {
-  const { data, setTemplate, setColorPreset, setFont, setSpacing, setMargin, loadDemoData } = useCvStore();
+  const { data, setTemplate, setColorPreset, setFont, setSpacing, setMargin, loadDemoData, setShowWatermark } = useCvStore();
   const [isGenerating, setIsGenerating] = useState(false);
 
   const handleDownloadPdf = async () => {
@@ -169,6 +169,23 @@ export default function RightPanel({ onDownloadStart, onDownloadEnd }: RightPane
                 {m === 'small' ? 'Wąskie' : m === 'medium' ? 'Średnie' : 'Szerokie'}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* 6. DODATKOWE */}
+        <div className="space-y-2 pt-4 border-t border-slate-200">
+          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Dodatkowe opcje</label>
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="showWatermark"
+              className="rounded text-sky-600 focus:ring-sky-500 h-4 w-4 border-slate-300 transition cursor-pointer"
+              checked={data.showWatermark}
+              onChange={(e) => setShowWatermark(e.target.checked)}
+            />
+            <label htmlFor="showWatermark" className="text-xs font-semibold text-slate-700 cursor-pointer select-none">
+              Pokaż stopkę (Wygenerowano przez cv-free.pl)
+            </label>
           </div>
         </div>
 

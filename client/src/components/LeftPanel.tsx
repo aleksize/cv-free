@@ -23,6 +23,8 @@ export default function LeftPanel() {
     addCustomSection,
     updateCustomSection,
     removeCustomSection,
+    setRodoClause,
+    setShowRodo,
     reset,
   } = useCvStore();
 
@@ -686,6 +688,59 @@ export default function LeftPanel() {
                 <span className="material-symbols-outlined text-base">add</span>
                 <span>Dodaj własną sekcję</span>
               </button>
+            </div>
+          )}
+        </div>
+
+        {/* 8. KLAUZULA RODO */}
+        <div className="rounded-xl border border-slate-200 overflow-hidden bg-white">
+          <button
+            onClick={() => toggleSection('rodo')}
+            className={`w-full flex items-center justify-between px-4 py-3 text-left font-semibold text-sm transition ${
+              activeSection === 'rodo' ? 'bg-sky-50/50 text-sky-600' : 'text-slate-800 hover:bg-slate-50'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="material-symbols-outlined text-lg">gavel</span>
+              <span>Klauzula RODO</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className={`h-2 w-2 rounded-full ${data.showRodo ? 'bg-emerald-500' : 'bg-slate-300'}`} />
+              <span className={`material-symbols-outlined text-lg transition-transform duration-200 ${
+                activeSection === 'rodo' ? 'rotate-180 text-sky-600' : 'text-slate-400'
+              }`}>
+                expand_more
+              </span>
+            </div>
+          </button>
+
+          {activeSection === 'rodo' && (
+            <div className="p-4 border-t border-slate-100 space-y-3 accordion-enter">
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="showRodo"
+                  className="rounded text-sky-600 focus:ring-sky-500 h-4 w-4 border-slate-300 transition cursor-pointer"
+                  checked={data.showRodo}
+                  onChange={(e) => setShowRodo(e.target.checked)}
+                />
+                <label htmlFor="showRodo" className="text-xs font-semibold text-slate-700 cursor-pointer select-none">
+                  Dołącz klauzulę RODO do CV
+                </label>
+              </div>
+
+              {data.showRodo && (
+                <div className="flex flex-col gap-1">
+                  <label className="text-[9px] font-bold uppercase tracking-wider text-slate-500">Treść klauzuli</label>
+                  <textarea
+                    className="rounded-lg border border-slate-200 px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition resize-y font-normal"
+                    rows={6}
+                    placeholder="Wpisz treść klauzuli o ochronie danych osobowych..."
+                    value={data.rodoClause}
+                    onChange={(e) => setRodoClause(e.target.value)}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>

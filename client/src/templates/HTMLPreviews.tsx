@@ -213,6 +213,21 @@ function ClassicPreview({ data }: PreviewProps) {
           )}
         </div>
       </div>
+
+      {(data.showRodo || data.showWatermark) && (
+        <div className="mt-auto pt-2">
+          {data.showRodo && data.rodoClause && (
+            <div className="border-t border-slate-200 pt-2 text-[7.5px] text-slate-400 leading-normal text-justify">
+              {data.rodoClause}
+            </div>
+          )}
+          {data.showWatermark && (
+            <div className="text-center text-[8px] text-slate-400 mt-1.5 font-medium">
+              Wygenerowano przez www.cv-free.pl
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -418,6 +433,21 @@ function ModernPreview({ data }: PreviewProps) {
           ))}
         </div>
       </div>
+
+      {(data.showRodo || data.showWatermark) && (
+        <div className="mt-auto pt-2">
+          {data.showRodo && data.rodoClause && (
+            <div className="border-t border-slate-200 pt-2 text-[7.5px] text-slate-400 leading-normal text-justify">
+              {data.rodoClause}
+            </div>
+          )}
+          {data.showWatermark && (
+            <div className="text-center text-[8px] text-slate-400 mt-1.5 font-medium">
+              Wygenerowano przez www.cv-free.pl
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -592,6 +622,21 @@ function MinimalPreview({ data }: PreviewProps) {
           )}
         </div>
       </div>
+
+      {(data.showRodo || data.showWatermark) && (
+        <div className="mt-auto pt-2">
+          {data.showRodo && data.rodoClause && (
+            <div className="border-t border-zinc-200 pt-2 text-[7.5px] text-zinc-400 leading-normal text-justify">
+              {data.rodoClause}
+            </div>
+          )}
+          {data.showWatermark && (
+            <div className="text-center text-[8px] text-zinc-400 mt-1.5 font-medium">
+              Wygenerowano przez www.cv-free.pl
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -770,6 +815,21 @@ function TechnicalPreview({ data }: PreviewProps) {
           )}
         </div>
       </div>
+
+      {(data.showRodo || data.showWatermark) && (
+        <div className="mt-auto pt-2">
+          {data.showRodo && data.rodoClause && (
+            <div className="border-t border-slate-200 pt-2 text-[7.5px] text-slate-400 leading-normal text-justify">
+              {data.rodoClause}
+            </div>
+          )}
+          {data.showWatermark && (
+            <div className="text-center text-[8px] text-slate-400 mt-1.5 font-medium">
+              Wygenerowano przez www.cv-free.pl
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

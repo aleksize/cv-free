@@ -125,6 +125,28 @@ export default function MinimalPDF({ data }: TemplateProps) {
     gridCol: {
       flex: 1,
     },
+    rodoContainer: {
+      marginTop: 'auto',
+      paddingTop: 6,
+      borderTopWidth: 0.5,
+      borderTopColor: '#e4e4e7',
+    },
+    rodoText: {
+      fontSize: 6.5,
+      color: '#71717a',
+      textAlign: 'justify',
+      lineHeight: 1.25,
+    },
+    watermark: {
+      position: 'absolute',
+      bottom: 12,
+      left: 0,
+      right: 0,
+      textAlign: 'center',
+      fontSize: 7.5,
+      color: '#a1a1aa',
+      fontFamily: font,
+    },
   });
 
   return (
@@ -253,6 +275,18 @@ export default function MinimalPDF({ data }: TemplateProps) {
           </View>
         )}
       </View>
+
+      {data.showRodo && data.rodoClause && (
+        <View style={styles.rodoContainer}>
+          <Text style={styles.rodoText}>{data.rodoClause}</Text>
+        </View>
+      )}
+
+      {data.showWatermark && (
+        <Text style={styles.watermark} fixed>
+          Wygenerowano przez www.cv-free.pl
+        </Text>
+      )}
     </Page>
   );
 }

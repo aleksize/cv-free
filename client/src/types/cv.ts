@@ -64,6 +64,9 @@ export interface CvData {
   font: string;
   spacing: 'small' | 'medium' | 'large';
   margin: 'small' | 'medium' | 'large';
+  rodoClause: string;
+  showRodo: boolean;
+  showWatermark: boolean;
 }
 
 export interface Template {

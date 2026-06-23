@@ -142,6 +142,29 @@ export default function TechnicalPDF({ data }: TemplateProps) {
       fontSize: 8,
       color: '#6b7280',
     },
+    rodoContainer: {
+      marginTop: 'auto',
+      paddingTop: 6,
+      borderTopWidth: 0.5,
+      borderTopColor: '#cbd5e1',
+    },
+    rodoText: {
+      fontSize: 6.5,
+      color: '#4b5563',
+      textAlign: 'justify',
+      lineHeight: 1.25,
+      fontFamily: font,
+    },
+    watermark: {
+      position: 'absolute',
+      bottom: 12,
+      left: 0,
+      right: 0,
+      textAlign: 'center',
+      fontSize: 7.5,
+      color: '#9ca3af',
+      fontFamily: font,
+    },
   });
 
   return (
@@ -270,6 +293,18 @@ export default function TechnicalPDF({ data }: TemplateProps) {
           </View>
         )}
       </View>
+
+      {data.showRodo && data.rodoClause && (
+        <View style={styles.rodoContainer}>
+          <Text style={styles.rodoText}>{data.rodoClause}</Text>
+        </View>
+      )}
+
+      {data.showWatermark && (
+        <Text style={styles.watermark} fixed>
+          Wygenerowano przez www.cv-free.pl
+        </Text>
+      )}
     </Page>
   );
 }

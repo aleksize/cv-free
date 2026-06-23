@@ -40,6 +40,9 @@ interface CvState {
   setFont: (font: string) => void;
   setSpacing: (spacing: 'small' | 'medium' | 'large') => void;
   setMargin: (margin: 'small' | 'medium' | 'large') => void;
+  setRodoClause: (rodoClause: string) => void;
+  setShowRodo: (showRodo: boolean) => void;
+  setShowWatermark: (showWatermark: boolean) => void;
   reset: () => void;
   loadDemoData: () => void;
 }
@@ -121,6 +124,9 @@ const demoData: CvData = {
   font: 'Inter',
   spacing: 'medium',
   margin: 'medium',
+  rodoClause: 'Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu tej oraz przyszłych rekrutacji zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych).',
+  showRodo: true,
+  showWatermark: true,
 };
 
 const initialData: CvData = {
@@ -136,6 +142,9 @@ const initialData: CvData = {
   font: 'Inter',
   spacing: 'medium',
   margin: 'medium',
+  rodoClause: 'Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu tej oraz przyszłych rekrutacji zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych).',
+  showRodo: true,
+  showWatermark: true,
 };
 
 export const useCvStore = create<CvState>()(
@@ -318,6 +327,18 @@ export const useCvStore = create<CvState>()(
       setMargin: (margin) =>
         set((state) => ({
           data: { ...state.data, margin },
+        })),
+      setRodoClause: (rodoClause) =>
+        set((state) => ({
+          data: { ...state.data, rodoClause },
+        })),
+      setShowRodo: (showRodo) =>
+        set((state) => ({
+          data: { ...state.data, showRodo },
+        })),
+      setShowWatermark: (showWatermark) =>
+        set((state) => ({
+          data: { ...state.data, showWatermark },
         })),
       reset: () => set({ data: initialData }),
       loadDemoData: () => set({ data: demoData }),
