@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /builder
+
+Sitemap: https://www.cv-free.pl/sitemap.xml

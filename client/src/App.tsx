@@ -3,6 +3,7 @@ import Landing from './pages/Landing';
 import Builder from './pages/Builder';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import CookieConsent from './components/CookieConsent';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/regulamin" element={<TermsOfService />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <CookieConsent />
     </BrowserRouter>
   );
 }
