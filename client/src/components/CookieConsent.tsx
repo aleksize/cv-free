@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // KONFIGURACJA IDENTYFIKATORÓW ŚLEDZENIA
 // Wpisz tutaj swoje klucze, aby włączyć statystyki
 // ==========================================
-const GA_TRACKING_ID = ''; // Np. 'G-XXXXXXXXXX'
+const GA_TRACKING_ID = 'G-FLKT77XSGS'; // Np. 'G-XXXXXXXXXX'
 const FB_PIXEL_ID = '';    // Np. '123456789012345'
 
 /**
