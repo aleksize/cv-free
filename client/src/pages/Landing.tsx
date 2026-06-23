@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCvStore } from '../stores/cvStore';
 import { HTMLPreview } from '../templates/HTMLPreviews';
 
@@ -477,8 +477,8 @@ export default function Landing() {
             <span className="text-xs font-bold text-slate-400">© {new Date().getFullYear()} cv-free.pl • Wszelkie prawa zastrzeżone.</span>
           </div>
           <div className="flex items-center gap-4 text-xs font-bold text-slate-400">
-            <span className="hover:text-slate-700 cursor-pointer">Polityka Prywatności</span>
-            <span className="hover:text-slate-700 cursor-pointer">Regulamin</span>
+            <Link to="/polityka-prywatnosci" className="hover:text-slate-700">Polityka Prywatności</Link>
+            <Link to="/regulamin" className="hover:text-slate-700">Regulamin</Link>
           </div>
         </div>
       </footer>
