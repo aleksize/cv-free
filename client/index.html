@@ -26,7 +26,77 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data for Generative Engine Optimization (GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://www.cv-free.pl/#webapp",
+          "url": "https://www.cv-free.pl/",
+          "name": "cv-free.pl - Darmowy Kreator CV",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "description": "Stwórz profesjonalne CV w 5 minut całkowicie za darmo, bez logowania i bez zakładania konta. Wybierz szablony zgodne z systemami ATS i pobierz wektorowy PDF.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "PLN",
+            "category": "Free"
+          },
+          "creator": {
+            "@type": "Organization",
+            "@id": "https://www.cv-free.pl/#organization",
+            "name": "Donner Sp. z o.o.",
+            "url": "https://www.cv-free.pl/",
+            "logo": "https://www.cv-free.pl/favicon.svg",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ul. Turkusowa 33 lok. 25",
+              "addressLocality": "Szczecin",
+              "postalCode": "70-778",
+              "addressCountry": "PL"
+            },
+            "taxID": "8513177877",
+            "vatID": "PL8513177877"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.cv-free.pl/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Czy kreator CV na cv-free.pl jest naprawdę darmowy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tak, cv-free.pl jest w 100% darmowym kreatorem CV. Pobranie pliku PDF nie wymaga żadnych opłat, mikropłatności ani podpinania karty płatniczej."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Czy muszę zakładać konto lub logować się, aby pobrać CV?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nie, do korzystania z kreatora nie jest wymagana rejestracja ani logowanie. Wszystkie dane są zapisywane lokalnie w przeglądarce użytkownika (Local First)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Czy szablony CV są zgodne z systemami ATS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tak, wszystkie szablony CV na cv-free.pl zostały zaprojektowane zgodnie ze standardami ATS. Wygenerowany plik PDF zawiera warstwę tekstową, co umożliwia systemom rekrutacyjnym bezbłędne odczytanie danych."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
