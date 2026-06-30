@@ -13,6 +13,8 @@ export function HTMLPreview({ data }: PreviewProps) {
         return <MinimalPreview data={data} />;
       case 'technical':
         return <TechnicalPreview data={data} />;
+      case 'executive':
+        return <ExecutivePreview data={data} />;
       case 'modern':
       default:
         return <ModernPreview data={data} />;
@@ -830,6 +832,252 @@ function TechnicalPreview({ data }: PreviewProps) {
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+// ----------------------------------------------------
+// 5. EXECUTIVE TEMPLATE (Ekskluzywny)
+// ----------------------------------------------------
+function ExecutivePreview({ data }: PreviewProps) {
+  const accent = data.colorPreset;
+  const paddingClass = data.margin === 'small' ? 'p-5' : data.margin === 'large' ? 'p-9' : 'p-7';
+  const itemGapClass = data.spacing === 'small' ? 'space-y-1' : data.spacing === 'large' ? 'space-y-4' : 'space-y-2.5';
+  const sectionGapClass = data.spacing === 'small' ? 'space-y-3' : data.spacing === 'large' ? 'space-y-6' : 'space-y-4.5';
+
+  return (
+    <div className="h-full w-full flex text-[9px] leading-relaxed bg-white min-h-[1120px]">
+      {/* Sidebar (Left Column) */}
+      <div className={`w-[185px] bg-[#0f172a] text-slate-200 flex flex-col ${paddingClass} py-8 gap-5 shrink-0`}>
+        {data.personal.photo && (
+          <div className="flex justify-center mb-2">
+            <img
+              src={data.personal.photo}
+              alt={data.personal.fullName}
+              className="w-20 h-20 rounded-full object-cover border-2"
+              style={{ borderColor: accent }}
+            />
+          </div>
+        )}
+
+        <div>
+          <h4 className="text-[8.5px] font-bold uppercase tracking-wider border-b border-slate-700 pb-1 mb-2">
+            Kontakt
+          </h4>
+          <div className="space-y-2 text-[8px]">
+            {data.personal.email && (
+              <div>
+                <p className="text-[7px] text-slate-400 font-bold uppercase">Email</p>
+                <p className="text-slate-200 break-all">{data.personal.email}</p>
+              </div>
+            )}
+            {data.personal.phone && (
+              <div>
+                <p className="text-[7px] text-slate-400 font-bold uppercase">Telefon</p>
+                <p className="text-slate-200">{data.personal.phone}</p>
+              </div>
+            )}
+            {data.personal.location && (
+              <div>
+                <p className="text-[7px] text-slate-400 font-bold uppercase">Lokalizacja</p>
+                <p className="text-slate-200">{data.personal.location}</p>
+              </div>
+            )}
+
+            {data.personal.linkedin && (
+              <div>
+                <p className="text-[7px] text-slate-400 font-bold uppercase">LinkedIn</p>
+                <p className="text-slate-200 break-all">
+                  {data.personal.linkedin.replace(/https?:\/\/(www\.)?linkedin\.com\/in\//, '')}
+                </p>
+              </div>
+            )}
+            {data.personal.website && (
+              <div>
+                <p className="text-[7px] text-slate-400 font-bold uppercase">Portfolio</p>
+                <p className="text-slate-200 break-all">
+                  {data.personal.website.replace(/https?:\/\/(www\.)?/, '')}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {data.skills.length > 0 && (
+          <div>
+            <h4 className="text-[8.5px] font-bold uppercase tracking-wider border-b border-slate-700 pb-1 mb-2">
+              Umiejętności
+            </h4>
+            <div className="flex flex-wrap gap-1">
+              {data.skills.map((skill) => (
+                <span
+                  key={skill.id}
+                  className="text-[7px] bg-slate-800 text-slate-200 px-2 py-0.5 rounded"
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {data.languages.length > 0 && (
+          <div>
+            <h4 className="text-[8.5px] font-bold uppercase tracking-wider border-b border-slate-700 pb-1 mb-2">
+              Języki
+            </h4>
+            <div className="space-y-1.5 text-[8px]">
+              {data.languages.map((lang) => (
+                <div key={lang.id}>
+                  <p className="font-bold text-slate-200">{lang.name}</p>
+                  {lang.level && <p className="text-[7px] text-slate-400">{lang.level}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {data.certificates.length > 0 && data.certificates.length <= 3 && (
+          <div>
+            <h4 className="text-[8.5px] font-bold uppercase tracking-wider border-b border-slate-700 pb-1 mb-2">
+              Certyfikaty
+            </h4>
+            <div className="space-y-1.5 text-[7.5px]">
+              {data.certificates.map((cert) => (
+                <div key={cert.id}>
+                  <p className="font-bold text-slate-200">{cert.name}</p>
+                  <p className="text-slate-400">{cert.issuer} {cert.date ? `| ${cert.date}` : ''}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Main Content (Right Column) */}
+      <div className={`flex-1 flex flex-col ${paddingClass} py-8 gap-5`}>
+        {/* Name and Title */}
+        <div className="border-b border-slate-200 pb-3">
+          <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-none">
+            {data.personal.fullName || 'Imię i nazwisko'}
+          </h2>
+          {data.personal.jobTitle && (
+            <p className="text-xs font-semibold tracking-wide mt-1.5 uppercase" style={{ color: accent }}>
+              {data.personal.jobTitle}
+            </p>
+          )}
+        </div>
+
+        {/* Profile Summary */}
+        {data.personal.summary && (
+          <div className="space-y-1.5">
+            <h3 className="text-[9px] font-bold text-slate-900 uppercase border-b border-slate-200 pb-1 mb-1.5">
+              Podsumowanie zawodowe
+            </h3>
+            <p className="text-[8.5px] text-slate-600 whitespace-pre-line leading-relaxed text-justify">
+              {data.personal.summary}
+            </p>
+          </div>
+        )}
+
+        {/* Experience */}
+        {data.experience.length > 0 && (
+          <div className="space-y-2">
+            <h3 className="text-[9px] font-bold text-slate-900 uppercase border-b border-slate-200 pb-1 mb-2">
+              Doświadczenie zawodowe
+            </h3>
+            <div className={sectionGapClass}>
+              {data.experience.map((exp) => (
+                <div key={exp.id} className={itemGapClass}>
+                  <div className="flex justify-between items-baseline">
+                    <h4 className="text-[9px] font-bold text-slate-800">{exp.role || 'Stanowisko'}</h4>
+                    <span className="text-[7.5px] text-slate-400 font-medium">
+                      {exp.startDate} {exp.endDate ? `— ${exp.endDate}` : ''}
+                    </span>
+                  </div>
+                  <div className="text-[8px] font-semibold" style={{ color: accent }}>
+                    {exp.company || 'Firma'}
+                  </div>
+                  {exp.description && (
+                    <p className="text-[8px] text-slate-500 whitespace-pre-line leading-relaxed text-justify">
+                      {exp.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Education */}
+        {data.education.length > 0 && (
+          <div className="space-y-2">
+            <h3 className="text-[9px] font-bold text-slate-900 uppercase border-b border-slate-200 pb-1 mb-2">
+              Wykształcenie
+            </h3>
+            <div className={sectionGapClass}>
+              {data.education.map((edu) => (
+                <div key={edu.id} className={itemGapClass}>
+                  <div className="flex justify-between items-baseline">
+                    <h4 className="text-[9px] font-bold text-slate-800">{edu.degree || 'Kierunek'}</h4>
+                    <span className="text-[7.5px] text-slate-400 font-medium">
+                      {edu.startDate} {edu.endDate ? `— ${edu.endDate}` : ''}
+                    </span>
+                  </div>
+                  <div className="text-[8px] font-semibold" style={{ color: accent }}>
+                    {edu.university || 'Uczelnia'}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Certificates in main column if > 3 */}
+        {data.certificates.length > 3 && (
+          <div className="space-y-2">
+            <h3 className="text-[9px] font-bold text-slate-900 uppercase border-b border-slate-200 pb-1 mb-2">
+              Certyfikaty i kursy
+            </h3>
+            <div className={sectionGapClass}>
+              {data.certificates.map((cert) => (
+                <div key={cert.id} className="text-[8px]">
+                  <p className="font-bold text-slate-800">{cert.name}</p>
+                  <p className="text-slate-500">{cert.issuer} {cert.date ? `| ${cert.date}` : ''}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Custom Sections */}
+        {data.customSections.map((sec) => (
+          <div key={sec.id} className="space-y-1.5">
+            <h3 className="text-[9px] font-bold text-slate-900 uppercase border-b border-slate-200 pb-1 mb-1.5">
+              {sec.title || 'Inne'}
+            </h3>
+            <p className="text-[8.5px] text-slate-600 whitespace-pre-line leading-relaxed text-justify">
+              {sec.content}
+            </p>
+          </div>
+        ))}
+
+        {/* RODO & Watermark footer */}
+        {(data.showRodo || data.showWatermark) && (
+          <div className="mt-auto pt-4 border-t border-slate-100">
+            {data.showRodo && data.rodoClause && (
+              <p className="text-[7px] text-slate-400 leading-normal text-justify animate-fade-in">
+                {data.rodoClause}
+              </p>
+            )}
+            {data.showWatermark && (
+              <p className="text-center text-[7.5px] text-slate-300 mt-2 font-medium">
+                Wygenerowano przez www.cv-free.pl
+              </p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

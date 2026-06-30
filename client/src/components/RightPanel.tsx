@@ -8,6 +8,7 @@ const templates = [
   { id: 'classic', name: 'Klasyczny', desc: 'Tradycyjny układ, centrowany nagłówek', color: 'from-slate-700 to-slate-900' },
   { id: 'minimal', name: 'Minimalistyczny', desc: 'Dużo przestrzeni, czysta typografia', color: 'from-zinc-300 to-zinc-400' },
   { id: 'technical', name: 'Techniczny', desc: 'Wysokie zagęszczenie, styl monospace', color: 'from-emerald-400 to-teal-500' },
+  { id: 'executive', name: 'Ekskluzywny', desc: 'Asymetryczny, premium panel boczny', color: 'from-blue-600 to-indigo-800' },
 ];
 
 const colors = [

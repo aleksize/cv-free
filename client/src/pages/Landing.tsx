@@ -9,6 +9,7 @@ const templates = [
   { id: 'classic', name: 'Klasyczny', desc: 'Tradycyjny, elegancki szablon z centrowanym nagłówkiem. Idealny dla stanowisk kierowniczych, finansów i prawa.', bgGradient: 'from-slate-700 to-slate-900' },
   { id: 'minimal', name: 'Minimalistyczny', desc: 'Maksymalnie uproszczona struktura stawiająca na czytelność tekstu. Wybór projektantów i minimalistów.', bgGradient: 'from-zinc-400 to-zinc-500' },
   { id: 'technical', name: 'Techniczny', desc: 'Zagęszczony układ z elementami o stałej szerokości (monospace). Stworzony dla programistów i inżynierów.', bgGradient: 'from-emerald-400 to-teal-500' },
+  { id: 'executive', name: 'Ekskluzywny', desc: 'Asymetryczny szablon dwukolumnowy premium. Doskonały dla menedżerów, dyrektorów i profesjonalistów.', bgGradient: 'from-blue-600 to-indigo-800' },
 ];
 
 const accentColors = [

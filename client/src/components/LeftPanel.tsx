@@ -34,6 +34,55 @@ export default function LeftPanel() {
     setActiveSection(activeSection === section ? null : section);
   };
 
+  const handleExportJson = () => {
+    try {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const fileName = `cv-backup-${(data.personal.fullName || 'free').trim().toLowerCase().replace(/\s+/g, '-')}.json`;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Failed to export JSON:', err);
+    }
+  };
+
+  const handleImportJson = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const parsed = JSON.parse(event.target?.result as string);
+        
+        if (parsed && typeof parsed === 'object' && parsed.personal && typeof parsed.personal === 'object') {
+          const validatedData = {
+            ...parsed,
+            experience: Array.isArray(parsed.experience) ? parsed.experience : [],
+            education: Array.isArray(parsed.education) ? parsed.education : [],
+            skills: Array.isArray(parsed.skills) ? parsed.skills : [],
+            languages: Array.isArray(parsed.languages) ? parsed.languages : [],
+            certificates: Array.isArray(parsed.certificates) ? parsed.certificates : [],
+            customSections: Array.isArray(parsed.customSections) ? parsed.customSections : (Array.isArray(parsed.customSection) ? parsed.customSection : []),
+          };
+          
+          useCvStore.setState({ data: validatedData });
+        } else {
+          alert('Błąd: Nieprawidłowy format pliku kopii zapasowej.');
+        }
+      } catch (err) {
+        alert('Błąd podczas odczytu pliku kopii zapasowej.');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -791,11 +840,32 @@ export default function LeftPanel() {
         </div>
       </div>
 
-      {/* Clear/Reset bar */}
-      <div className="p-4 border-t border-slate-200 bg-slate-50 flex items-center gap-3">
+      {/* Backup and Clear actions */}
+      <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+        <div className="flex gap-2">
+          <button
+            onClick={handleExportJson}
+            className="flex-1 rounded-lg border border-slate-200 hover:border-sky-300 hover:bg-sky-50/20 bg-white py-2 text-xs font-semibold text-slate-600 flex items-center justify-center gap-1.5 transition cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-sm">download</span>
+            <span>Eksportuj (.json)</span>
+          </button>
+          
+          <label className="flex-1 rounded-lg border border-slate-200 hover:border-sky-300 hover:bg-sky-50/20 bg-white py-2 text-xs font-semibold text-slate-600 flex items-center justify-center gap-1.5 transition cursor-pointer text-center">
+            <span className="material-symbols-outlined text-sm">upload</span>
+            <span>Importuj (.json)</span>
+            <input
+              type="file"
+              accept=".json"
+              className="hidden"
+              onChange={handleImportJson}
+            />
+          </label>
+        </div>
+        
         <button
           onClick={reset}
-          className="flex-1 rounded-lg border border-slate-200 hover:border-rose-200 hover:text-rose-600 hover:bg-rose-50/20 bg-white py-2 text-xs font-semibold text-slate-600 transition"
+          className="w-full rounded-lg border border-slate-200 hover:border-rose-200 hover:text-rose-600 hover:bg-rose-50/20 bg-white py-2 text-xs font-semibold text-slate-600 transition cursor-pointer"
         >
           Wyczyść wszystkie dane
         </button>

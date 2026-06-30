@@ -4,6 +4,7 @@ import ClassicPDF from './ClassicPDF';
 import ModernPDF from './ModernPDF';
 import MinimalPDF from './MinimalPDF';
 import TechnicalPDF from './TechnicalPDF';
+import ExecutivePDF from './ExecutivePDF';
 
 // Register Polish supporting fonts from local assets (TTF format, served from /public/fonts)
 Font.register({
@@ -55,6 +56,8 @@ export function CvDocument({ data }: CvDocumentProps) {
         return <MinimalPDF data={data} />;
       case 'technical':
         return <TechnicalPDF data={data} />;
+      case 'executive':
+        return <ExecutivePDF data={data} />;
       case 'modern':
       default:
         return <ModernPDF data={data} />;
