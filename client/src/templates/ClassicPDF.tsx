@@ -38,9 +38,9 @@ export default function ClassicPDF({ data }: TemplateProps) {
       gap: 12,
     },
     photo: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
+      width: 80,
+      height: 80,
+      borderRadius: 40,
       objectFit: 'cover',
     },
     fullName: {

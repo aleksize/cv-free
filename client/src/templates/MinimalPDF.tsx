@@ -31,9 +31,9 @@ export default function MinimalPDF({ data }: TemplateProps) {
       gap: 16,
     },
     photo: {
-      width: 50,
-      height: 50,
-      borderRadius: 4,
+      width: 80,
+      height: 80,
+      borderRadius: 6,
       objectFit: 'cover',
     },
     fullName: {

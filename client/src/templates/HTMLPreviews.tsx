@@ -55,7 +55,7 @@ function ClassicPreview({ data }: PreviewProps) {
             <img
               src={data.personal.photo}
               alt={data.personal.fullName}
-              className="w-12 h-12 rounded-full object-cover border border-slate-200"
+              className="w-20 h-20 rounded-full object-cover border border-slate-200"
             />
           )}
           <div>
@@ -250,7 +250,7 @@ function ModernPreview({ data }: PreviewProps) {
           <img
             src={data.personal.photo}
             alt={data.personal.fullName}
-            className="w-14 h-14 rounded-full object-cover border-2"
+            className="w-24 h-24 rounded-full object-cover border-2"
             style={{ borderColor: accent }}
           />
         )}
@@ -471,7 +471,7 @@ function MinimalPreview({ data }: PreviewProps) {
             <img
               src={data.personal.photo}
               alt={data.personal.fullName}
-              className="w-12 h-12 rounded object-cover border border-zinc-200"
+              className="w-20 h-20 rounded object-cover border border-zinc-200"
             />
           )}
           <div>
@@ -661,7 +661,7 @@ function TechnicalPreview({ data }: PreviewProps) {
             <img
               src={data.personal.photo}
               alt={data.personal.fullName}
-              className="w-12 h-12 rounded-full object-cover"
+              className="w-20 h-20 rounded-full object-cover"
             />
           )}
           <div>

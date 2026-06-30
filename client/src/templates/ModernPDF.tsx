@@ -33,9 +33,9 @@ export default function ModernPDF({ data }: TemplateProps) {
       marginBottom: sectionGap + 4,
     },
     photo: {
-      width: 60,
-      height: 60,
-      borderRadius: 30,
+      width: 90,
+      height: 90,
+      borderRadius: 45,
       objectFit: 'cover',
       borderWidth: 2,
       borderColor: accent,
