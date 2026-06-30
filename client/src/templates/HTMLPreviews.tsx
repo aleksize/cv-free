@@ -854,7 +854,7 @@ function ExecutivePreview({ data }: PreviewProps) {
             <img
               src={data.personal.photo}
               alt={data.personal.fullName}
-              className="w-20 h-20 rounded-full object-cover border-2"
+              className="w-28 h-28 rounded-full object-cover border-2"
               style={{ borderColor: accent }}
             />
           </div>

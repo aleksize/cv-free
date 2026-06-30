@@ -47,9 +47,9 @@ export default function ExecutivePDF({ data }: TemplateProps) {
       marginBottom: 10,
     },
     photo: {
-      width: 80,
-      height: 80,
-      borderRadius: 40,
+      width: 110,
+      height: 110,
+      borderRadius: 55,
       objectFit: 'cover',
       borderWidth: 2,
       borderColor: accent,
